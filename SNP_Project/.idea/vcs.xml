@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-<<<<<<< HEAD:SNP_be/.idea/vcs.xml
-    <mapping directory="$USER_HOME$" vcs="Git" />
-=======
->>>>>>> 04c8d61a071dc62efc0bf121970b1f963bcd3f0c:SNP_Project/.idea/vcs.xml
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
   </component>
 </project>
