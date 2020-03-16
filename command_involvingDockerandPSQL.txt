@@ -1,0 +1,16 @@
+This is when you create a table in dockerized postgres
+CREATE TABLE SNP_DB(Main_Gene_name  varchar, initialAA varchar,finalAA varchar,position_of_Change varchar,Type_of_Variant varchar,dbSNP varchar,Disease_name varchar);
+
+This is when you copy the file to docker container... I do this because I am not good at docker and fdont know how to create a container for psql and persist the data 
+
+ docker cp snp_relation.csv 286f68d1cdd8:/snp_relation.csv
+
+
+now you can copy the file from  your container to your database
+
+ COPY snp_db  FROM '/snp_relation.csv' DELIMITER ',' CSV HEADER;
+COPY 78244
+
+
+and that's it... you can query from the table: snp_relation
+
