@@ -1,4 +1,16 @@
+
 This is when you create a table in dockerized postgres
+First thing first, let me just give you the command to run postgress
+
+ docker run --name snpContainer  -p 543x:5432 -d -e POSTGRES_PASSWORD=1234 postgres
+
+You now have a container named: snpContainer
+Now run 
+1972  docker exec -it snpContainer psql -U postgres
+
+and then you will create the table using the folling commands
+
+
 CREATE TABLE SNP_DB(Main_Gene_name  varchar, initialAA varchar,finalAA varchar,position_of_Change varchar,Type_of_Variant varchar,dbSNP varchar,Disease_name varchar);
 
 This is when you copy the file to docker container... I do this because I am not good at docker and fdont know how to create a container for psql and persist the data 
@@ -13,4 +25,7 @@ COPY 78244
 
 
 and that's it... you can query from the table: snp_relation
+i.e.,
+select * from snp_relation limit 5;
+
 
