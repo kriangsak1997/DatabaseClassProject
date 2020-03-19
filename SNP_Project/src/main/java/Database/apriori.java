@@ -1,3 +1,5 @@
+package Database;
+
 import java.io.*;
 import java.util.*;
 public class apriori {
@@ -21,7 +23,6 @@ public class apriori {
             }
             System.out.println();
         }
-
     }
 
     public static LinkedHashSet<HashSet<Integer>> aprioriAlgorithm(ArrayList<HashSet<Integer>> transaction, Integer minimumSupportCount, InputFile masterList) {
@@ -206,7 +207,6 @@ public class apriori {
 
         return subset;
     }
-
     public static List<String> readInput() throws IOException {
         //Initialize Input Stream
         BufferedReader in = new BufferedReader(

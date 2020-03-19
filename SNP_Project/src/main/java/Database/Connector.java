@@ -28,24 +28,20 @@ class connector {
 //            ResultSet resultSet = statement.executeQuery(query.topReviews("PMDlKLd0Mxj0ngCpuUmE5Q"));
 //            ResultSet resultSet = statement.executeQuery(query.averageRating(uidtest));
 //            ResultSet resultSet = statement.executeQuery(Queries.countPlymorphism());
-            ResultSet resultSet = statement.executeQuery(Queries.countDisease());
+            ResultSet resultSet = statement.executeQuery(Queries.insertInto("abcd","arg","his"
+            ,"50","mutation", "ssr44","Harveysdisease"));
+           // ResultSet resultSet = statement.executeQuery(Queries.Diseases());
+//            ResultSetMetaData thisdummyvar =resultSet.getMetaData();
+//            int number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+//            while (resultSet.next()) {
+//                for (int count = 1; count <= number_of_the_fricken_columns; count++) {
+//                    String s = thisdummyvar.getColumnName(count);
+//                    System.out.print(s + ": " + resultSet.getString(count)+" ");
+//                }
+//                System.out.println(" ");
+//                //
+//            }
 
-            //ResultSet resultSet = statement.executeQuery(Queries.Diseases());
-
-            //XgqVF5YKdQLCWDKiEkt0g
-
-
-            ResultSetMetaData thisdummyvar =resultSet.getMetaData();
-            int number_of_the_fricken_columns = thisdummyvar.getColumnCount();
-            while (resultSet.next()) {
-                for (int count = 1; count <= number_of_the_fricken_columns; count++) {
-
-                    String s = thisdummyvar.getColumnName(count);
-                    System.out.print(s + ": " + resultSet.getString(count)+" ");
-                }
-                System.out.println(" ");
-                //
-            }
         } catch (SQLException e) {
             System.out.println("Connection failure.");
             e.printStackTrace();
