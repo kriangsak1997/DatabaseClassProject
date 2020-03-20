@@ -6,8 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
 import java.util.logging.ConsoleHandler;
-
-class connector {
+class Connector {
     private static final String url = "jdbc:postgresql://localhost:5432/postgres";
     private static final String user = "postgres";
     private static final String password = "1997";
@@ -18,7 +17,7 @@ class connector {
         try {
             Class.forName("org.postgresql.Driver");
             System.out.println("Connected to database");
-             connection = DriverManager.getConnection(url,user,password);
+            connection = DriverManager.getConnection(url,user,password);
             Statement statement = connection.createStatement();
             // select business_id from business where (is_open =1 and state = "AZ") order by review_count desc limit 10;
 //
@@ -29,8 +28,8 @@ class connector {
 //            ResultSet resultSet = statement.executeQuery(query.averageRating(uidtest));
 //            ResultSet resultSet = statement.executeQuery(Queries.countPlymorphism());
             ResultSet resultSet = statement.executeQuery(Queries.insertInto("abcd","arg","his"
-            ,"50","mutation", "ssr44","Harveysdisease"));
-           // ResultSet resultSet = statement.executeQuery(Queries.Diseases());
+                    ,"50","mutation", "ssr44","Harveysdisease"));
+            // ResultSet resultSet = statement.executeQuery(Queries.Diseases());
 //            ResultSetMetaData thisdummyvar =resultSet.getMetaData();
 //            int number_of_the_fricken_columns = thisdummyvar.getColumnCount();
 //            while (resultSet.next()) {
@@ -49,6 +48,7 @@ class connector {
             e.printStackTrace();
         } finally {
             connection.close();
+            System.out.println("Connection Closed");
         }
     }
 }

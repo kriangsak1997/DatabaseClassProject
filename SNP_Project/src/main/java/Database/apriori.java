@@ -41,7 +41,6 @@ public class apriori {
         //Prune L1 based on MST
         frequentItemMap = pruneFrequentItemMap(frequentItemMap, minimumSupportCount);
 
-
         //Add to return frequent set
         Boolean firstItem;
         HashSet<HashSet<Integer>> frequentItemSet = new HashSet<HashSet<Integer>>();

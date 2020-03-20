@@ -27,4 +27,5 @@ public class Queries {
                  "values ('" + Main_Gene_name +"','" + initialAA +"','" + finalAA + "','" + position +"','" + Type_of_Variant +"','"
                  + dbSNP+"','" + Disease_name+"');";
     }
+
 }
