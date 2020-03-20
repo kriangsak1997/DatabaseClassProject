@@ -8,7 +8,7 @@ public class apriori {
 
         List<String> input = readInput();
         InputFile masterList = parseInput(input);
-
+// from here i need to select from the table and parse it to masterlist
         LinkedHashSet<HashSet<Integer>> frequentItemSet = aprioriAlgorithm(masterList.bucketList,masterList.minimumSupportThreshold,masterList);
 
         //Display Frequent Item List
