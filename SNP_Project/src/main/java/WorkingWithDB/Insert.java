@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class Insert {
     public static boolean insert(String Main_Gene_name, String initialAA, String finalAA, String position,
-                          String Type_of_Variant, String dbSNP, String Disease_name) {
+                          String Type_of_Variant, String dbSNP, String Disease_name) throws SQLException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.connection();
         try {
@@ -26,10 +26,13 @@ public class Insert {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        finally {
+            connection.close();
+            return false;
+        }
     }
-
-    public static void main(String[] args) {
+// Test Test
+    public static void main(String[] args) throws SQLException {
         Insert.insert("aaaaa","arg","his"
                 ,"50","mutation", "ssr44","Covid-19");
     }
