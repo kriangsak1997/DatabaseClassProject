@@ -5,7 +5,7 @@ First thing first, let me just give you the command to run postgress
 
 You now have a container named: snpContainer
 Now run 
-1972  docker exec -it snpContainer psql -U postgres
+  docker exec -it snpContainer psql -U postgres
 
 and then you will create the table using the folling commands
 

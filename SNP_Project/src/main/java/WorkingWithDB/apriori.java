@@ -1,3 +1,5 @@
+package WorkingWithDB;
+
 import java.io.*;
 import java.util.*;
 public class apriori {
@@ -6,7 +8,7 @@ public class apriori {
 
         List<String> input = readInput();
         InputFile masterList = parseInput(input);
-
+// from here i need to select from the table and parse it to masterlist
         LinkedHashSet<HashSet<Integer>> frequentItemSet = aprioriAlgorithm(masterList.bucketList,masterList.minimumSupportThreshold,masterList);
 
         //Display Frequent Item List
@@ -21,7 +23,6 @@ public class apriori {
             }
             System.out.println();
         }
-
     }
 
     public static LinkedHashSet<HashSet<Integer>> aprioriAlgorithm(ArrayList<HashSet<Integer>> transaction, Integer minimumSupportCount, InputFile masterList) {
@@ -39,7 +40,6 @@ public class apriori {
 
         //Prune L1 based on MST
         frequentItemMap = pruneFrequentItemMap(frequentItemMap, minimumSupportCount);
-
 
         //Add to return frequent set
         Boolean firstItem;
@@ -206,7 +206,6 @@ public class apriori {
 
         return subset;
     }
-
     public static List<String> readInput() throws IOException {
         //Initialize Input Stream
         BufferedReader in = new BufferedReader(
