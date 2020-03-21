@@ -1,4 +1,6 @@
-package db;
+package WorkingWithDB;
+
+import WorkingWithDB.QueryExecution;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -60,6 +62,7 @@ public class HOMEE extends JFrame {
                 String A =  numA.getText();
                 try {
                     QueryExecution.execQuery(A);
+
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }
