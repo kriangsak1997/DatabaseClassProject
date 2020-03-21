@@ -1,12 +1,21 @@
-package db;
+package WorkingWithDB;
 
+import WorkingWithDB.Insert;
+import WorkingWithDB.Queries;
+import WorkingWithDB.QueryExecution;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class switchc {
 
-    public static void run(String month) {
+    public static void run(String month) throws SQLException {
         Scanner in = new Scanner(System.in);
+        QueryExecution executor = new QueryExecution();
         Queries q = new Queries();
+        Insert inserter = new Insert();
         String input1;
         String input2;
         String input3;
@@ -15,18 +24,30 @@ public class switchc {
         String input6;
         String input7;
 
+        ResultSetMetaData thisdummyvar;
+
         switch (month.toLowerCase()) {
             case "1":
-                q.countPlymorphism();
+                ResultSet resultSet = (ResultSet) executor.execQuery(q.countPlymorphism());
+                thisdummyvar =resultSet.getMetaData();
+            int number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+            while (resultSet.next()) {
+                for (int count = 1; count <= number_of_the_fricken_columns; count++) {
+                    String s = thisdummyvar.getColumnName(count);
+                    System.out.print(s + ": " + resultSet.getString(count)+" ");
+                }
+                System.out.println(" ");
+                //
+            }
                 break;
             case "2":
-                q.countDisease();
+                executor.execQuery(q.countDisease());
                 break;
             case "3":
-                q.countUnclassified();
+                executor.execQuery(q.countUnclassified());
                 break;
             case "4":
-                q.classification();
+                executor.execQuery(q.classification());
                 break;
             case "5":
                 System.out.println("Enter Main_Gene_name");
@@ -43,7 +64,8 @@ public class switchc {
                 input6=in.nextLine();
                 System.out.println("EnterDisease_name");
                 input7=in.nextLine();
-                q.insertInto(input1,input2,input3,input4,input5,input6,input7);
+                executor.execQuery(q.insertInto(input1,input2,input3,input4,input5,input6,input7));
+
                 break;
             default:
                 System.out.println("please try again.");
@@ -53,7 +75,7 @@ public class switchc {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         Scanner in = new Scanner(System.in);
         String month;
