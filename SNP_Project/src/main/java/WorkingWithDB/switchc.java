@@ -1,10 +1,13 @@
 package db;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+
+import static db.QueryExecution.execQuery;
 
 public class switchc {
 
-    public static void run(String month) {
+    public static void run(String month) throws SQLException {
         Scanner in = new Scanner(System.in);
         Queries q = new Queries();
         String input1;
@@ -17,16 +20,16 @@ public class switchc {
 
         switch (month.toLowerCase()) {
             case "1":
-                q.countPlymorphism();
+                execQuery(q.countPlymorphism());
                 break;
             case "2":
-                q.countDisease();
+                execQuery(q.countDisease());
                 break;
             case "3":
-                q.countUnclassified();
+                execQuery(q.countUnclassified());
                 break;
             case "4":
-                q.classification();
+                execQuery(q.classification());
                 break;
             case "5":
                 System.out.println("Enter Main_Gene_name");
@@ -43,7 +46,7 @@ public class switchc {
                 input6=in.nextLine();
                 System.out.println("EnterDisease_name");
                 input7=in.nextLine();
-                q.insertInto(input1,input2,input3,input4,input5,input6,input7);
+                execQuery(q.insertInto(input1,input2,input3,input4,input5,input6,input7));
                 break;
             default:
                 System.out.println("please try again.");
@@ -53,16 +56,16 @@ public class switchc {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         Scanner in = new Scanner(System.in);
         String month;
         System.out.println(
                 "1: count plymorphism\n" +
-                "2: count disease\n" +
-                "3: count unclassified\n" +
-                "4: classification\n" +
-                "5: insert");
+                        "2: count disease\n" +
+                        "3: count unclassified\n" +
+                        "4: classification\n" +
+                        "5: insert");
         System.out.println("Enter number of function to run");
         month = in.nextLine();
         run(month);
