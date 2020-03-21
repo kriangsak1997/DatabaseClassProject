@@ -64,7 +64,7 @@ public class switchc {
                 input6=in.nextLine();
                 System.out.println("EnterDisease_name");
                 input7=in.nextLine();
-                executor.execQuery(q.insertInto(input1,input2,input3,input4,input5,input6,input7));
+                inserter.insert(input1,input2,input3,input4,input5,input6,input7);
 
                 break;
             default:
