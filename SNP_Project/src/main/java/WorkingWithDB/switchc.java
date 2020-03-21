@@ -1,8 +1,14 @@
 package db;
 
+import WorkingWithDB.Queries;
+import com.mysql.cj.protocol.Resultset;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import static WorkingWithDB.QueryExecution.execQuery;
 import static db.QueryExecution.execQuery;
 
 public class switchc {
@@ -10,6 +16,9 @@ public class switchc {
     public static void run(String month) throws SQLException {
         Scanner in = new Scanner(System.in);
         Queries q = new Queries();
+        ResultSetMetaData thisdummyvar=null;
+        ResultSet resultSet;
+        int number_of_the_fricken_columns;
         String keep;
         String input1;
         String input2;
@@ -21,16 +30,33 @@ public class switchc {
 
         switch (month.toLowerCase()) {
             case "1":
-                execQuery(q.countPlymorphism());
+
+                resultSet = (ResultSet) execQuery(q.countPlymorphism());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                //
                 break;
             case "2":
-                execQuery(q.countDisease());
+
+                resultSet = (ResultSet) execQuery(q.countDisease());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                //
                 break;
             case "3":
-                execQuery(q.countUnclassified());
+                resultSet = (ResultSet) execQuery(q.countUnclassified());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                //
                 break;
             case "4":
-                execQuery(q.classification());
+                resultSet = (ResultSet)    execQuery(q.classification());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
                 break;
             case "5":
                 System.out.println("Enter Main_Gene_name");
@@ -48,17 +74,32 @@ public class switchc {
                 System.out.println("EnterDisease_name");
                 input7=in.nextLine();
                 execQuery(q.insertInto(input1,input2,input3,input4,input5,input6,input7));
+                System.out.println("Insertion Completed");
                 break;
             case "6":
                 System.out.println("Enter your query");
                 keep=in.nextLine();
-                execQuery(keep);
+                resultSet = (ResultSet)     execQuery(keep);
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+
             default:
                 System.out.println("please try again.");
                 System.out.println();
                 break;
         }
 
+    }
+
+    private static void Print(ResultSetMetaData thisdummyvar, ResultSet resultSet, int number_of_the_fricken_columns) throws SQLException {
+        while (resultSet.next()) {
+            for (int count = 1; count <= number_of_the_fricken_columns; count++) {
+                String s = thisdummyvar.getColumnName(count);
+                System.out.print(s + ": " + resultSet.getString(count) + " ");
+            }
+            System.out.println(" ");
+        }
     }
 
     public static void main(String[] args) throws SQLException {
