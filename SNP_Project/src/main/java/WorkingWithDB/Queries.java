@@ -1,4 +1,4 @@
-package Database;
+package WorkingWithDB;
 
 import com.sun.tools.javac.Main;
 
