@@ -1,11 +1,13 @@
 package Database;
 
+import WorkingWithDB.Queries;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
-import java.util.logging.ConsoleHandler;
+
 class Connector {
     private static final String url = "jdbc:postgresql://localhost:5432/postgres";
     private static final String user = "postgres";

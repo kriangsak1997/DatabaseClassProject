@@ -1,4 +1,4 @@
-package front;
+package WorkingWithDB;
 
 import javax.swing.*;
 import java.awt.Desktop;
@@ -21,11 +21,9 @@ public class Home {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600,350);
         frame.setResizable(false);
-
         JPanel topPanel = new JPanel();
         JLabel label = new JLabel("Home page");
         topPanel.add(BorderLayout.CENTER, label);
-
         JPanel centerPanel = new JPanel();
         JButton insert= new JButton("Insert");
         JButton update = new JButton("update");
@@ -35,8 +33,6 @@ public class Home {
         centerPanel.add(update);
         centerPanel.add(delete);
         centerPanel.add(databaselink);
-
-
         frame.getContentPane().add(topPanel, BorderLayout.NORTH);
         frame.getContentPane().add(centerPanel, BorderLayout.SOUTH);
         databaselink.setVisible(true);
@@ -70,7 +66,6 @@ public class Home {
                 }
             }
         });
-
 
     }
 }
