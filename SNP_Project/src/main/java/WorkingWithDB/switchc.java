@@ -78,13 +78,17 @@ public class switchc {
                 System.out.println("Insertion Completed");
                 break;
             case "6":
+                System.out.println("Enter your create queries");
+                keep = in.nextLine();
+                Create.createdb(keep);
+
+            case "7":
                 System.out.println("Enter your query");
                 keep=in.nextLine();
                 resultSet = (ResultSet)     execQuery(keep);
                 thisdummyvar =resultSet.getMetaData();
                 number_of_the_fricken_columns = thisdummyvar.getColumnCount();
                 Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
-
             default:
                 System.out.println("please try again.");
                 System.out.println();
@@ -112,7 +116,8 @@ public class switchc {
                         "3: count unclassified\n" +
                         "4: classification\n" +
                         "5: insert\n" +
-                        "6: your own query"
+                        "6: Create Table\n"+
+                        "7: others"
         );
         System.out.println("Enter number of function to run");
         month = inp.nextLine();
