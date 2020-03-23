@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Insert {
-    public static boolean insert(String Main_Gene_name, String initialAA, String finalAA, String position,
+    public static boolean insert(String Main_Gene_name, String initialAA, String finalAA, int position,
                           String Type_of_Variant, String dbSNP, String Disease_name) throws SQLException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.connection();
@@ -15,7 +15,7 @@ public class Insert {
             ps.setString(1, Main_Gene_name);
             ps.setString(2,initialAA);
             ps.setString(3,finalAA);
-            ps.setString(4,position);
+            ps.setInt(4, position);
             ps.setString(5,Type_of_Variant);
             ps.setString(6,dbSNP);
             ps.setString(7,Disease_name);
@@ -34,6 +34,6 @@ public class Insert {
 // Test Test
     public static void main(String[] args) throws SQLException {
         Insert.insert("aaaaa","arg","his"
-                ,"50","mutation", "ssr44","Covid-19");
+                ,50,"mutation", "ssr44","Covid-19");
     }
 }

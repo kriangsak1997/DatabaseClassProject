@@ -1,4 +1,4 @@
-package db;
+package WorkingWithDB;
 
 import WorkingWithDB.Queries;
 import com.mysql.cj.protocol.Resultset;
@@ -8,8 +8,9 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import static WorkingWithDB.Insert.insert;
 import static WorkingWithDB.QueryExecution.execQuery;
-import static db.QueryExecution.execQuery;
+//import static db.QueryExecution.execQuery;
 
 public class switchc {
     Scanner in =new Scanner(System.in);
@@ -23,7 +24,7 @@ public class switchc {
         String input1;
         String input2;
         String input3;
-        String input4;
+        int input4;
         String input5;
         String input6;
         String input7;
@@ -66,14 +67,14 @@ public class switchc {
                 System.out.println("Enter finalAA");
                 input3=in.nextLine();
                 System.out.println("Enter position");
-                input4=in.nextLine();
+                input4= Integer.parseInt(in.nextLine());
                 System.out.println("EnterType_of_Variant");
                 input5=in.nextLine();
                 System.out.println("Enter dbSNP");
                 input6=in.nextLine();
                 System.out.println("EnterDisease_name");
                 input7=in.nextLine();
-                execQuery(q.insertInto(input1,input2,input3,input4,input5,input6,input7));
+                insert(input1,input2,input3,input4,input5,input6,input7);
                 System.out.println("Insertion Completed");
                 break;
             case "6":

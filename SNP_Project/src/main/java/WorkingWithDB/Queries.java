@@ -4,7 +4,7 @@ import com.sun.tools.javac.Main;
 
 public class Queries {
      public static String countPlymorphism(){
-         return "select * \n" +
+         return "select count(type_of_variant) \n" +
                  "from snp_db where type_of_variant ='Polymorphism' \n";
      }
     public static String countDisease(){
