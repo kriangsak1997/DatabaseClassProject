@@ -78,22 +78,45 @@ public class switchc {
                 System.out.println("Insertion Completed");
                 break;
             case "6":
-                System.out.println("Enter your create queries");
+                System.out.println("Enter create queries");
                 keep = in.nextLine();
                 Create.createdb(keep);
-
+                break;
             case "7":
+                resultSet = (ResultSet) execQuery(q.subinterval_counts());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                //
+                break;
+            case "8":
+                resultSet = (ResultSet) execQuery(q.miningResult());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                //
+                break;
+            case "9":
+                resultSet = (ResultSet) execQuery(q.rules_v_types());
+                thisdummyvar =resultSet.getMetaData();
+                number_of_the_fricken_columns = thisdummyvar.getColumnCount();
+                Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                //
+                break;
+            case "10":
                 System.out.println("Enter your query");
                 keep=in.nextLine();
                 resultSet = (ResultSet)     execQuery(keep);
                 thisdummyvar =resultSet.getMetaData();
                 number_of_the_fricken_columns = thisdummyvar.getColumnCount();
                 Print(thisdummyvar, resultSet, number_of_the_fricken_columns);
+                break;
             default:
                 System.out.println("please try again.");
                 System.out.println();
                 break;
         }
+
 
     }
 
@@ -117,7 +140,11 @@ public class switchc {
                         "4: classification\n" +
                         "5: insert\n" +
                         "6: Create Table\n"+
-                        "7: others"
+                        "7: Count_Subinterval\n" +
+                        "8: Display Mining Result\n"+
+                        "9: Display Rule_ vs_Type_Of_variants\n"+
+                        "10: others"
+
         );
         System.out.println("Enter number of function to run");
         month = inp.nextLine();
