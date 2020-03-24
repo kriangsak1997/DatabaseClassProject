@@ -29,7 +29,12 @@ public class Queries {
     public static String miningResult(){
         return "select * from miningresult";
     }
-
+    public static String countinitialAA(){
+         return "select distinct initialaa, count(initialaa) from snp_db group by initialaa";
+    }
+    public static String countfinalalAA(){
+        return "select distinct finalaa, count(finalaa) from snp_db group by finalaa";
+    }
 
     public static String insertInto(String Main_Gene_name, String initialAA, String finalAA, String position,
                                     String Type_of_Variant, String dbSNP, String Disease_name){
@@ -37,4 +42,5 @@ public class Queries {
                  "values ('" + Main_Gene_name +"','" + initialAA +"','" + finalAA + "','" + position +"','" + Type_of_Variant +"','"
                  + dbSNP+"','" + Disease_name+"');";
     }
+
 }
