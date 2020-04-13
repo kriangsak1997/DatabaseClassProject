@@ -11,7 +11,7 @@ public class Insert {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.connection();
         try {
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO snp_db VALUES (?, ?, ?, ?,?,?,?)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO snp_db VALUES (?, ?, ?, ?,?,?,?);");
             ps.setString(1, Main_Gene_name);
             ps.setString(2,initialAA);
             ps.setString(3,finalAA);
